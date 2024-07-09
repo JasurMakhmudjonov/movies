@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  fullname  String   @map("fullname") @db.VarChar(32)
+  email     String   @map("email")
+  password  String   @map("password") @db.VarChar(255)
+  isAdmin   Boolean  @default(false) @map("isAdmin")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@id([id])
+  @@unique([email])
+  @@map("user")
+}
+
+enum filmGenre {
+  horror
+  drama
+  comedy
+  romance
+  fantastic
+  melodrama
+
+  @@map("filmGenre")
+}
+
+model Movie {
+  id          String    @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title       String    @map("title")
+  description String    @map("description")
+  year        String    @map("year")
+  duration    String    @map("duration")
+  link        String    @map("link")
+  views       Int       @default(1) @map("views")
+  viewers     String[]  @map("viewers") @default([])
+  genre       filmGenre @map("genre")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  @@id([id])
+  @@map("movie")
+}
+
+model otp {
+  id        String   @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  otp       String   @map("otp")
+  email     String   @map("email")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@id([id])
+  @@map("otp")
+}

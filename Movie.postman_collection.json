@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "6ded66eb-886f-4f58-8382-4cef8b89cfbf",
+		"name": "Movie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34421655"
+	},
+	"item": [
+		{
+			"name": "createM",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"King Kong\",\r\n    \"description\": \"King Kong kinosida haqida\",\r\n    \"year\": \"2014\",\r\n    \"duration\": \"1 hour\",\r\n    \"link\": \"link\",\r\n    \"genre\": \"fantastic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/movie/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showMs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/movie/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editM",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"King Kong 2  \",\r\n    \"description\": \"King Kong kinosida haqida\",\r\n    \"year\": \"2015\",\r\n    \"duration\": \"1 hour\",\r\n    \"link\": \"link\",\r\n    \"genre\": \"fantastic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/movie/3a55cbf4-c125-4581-8e81-317bd0ae9e9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movie",
+						"3a55cbf4-c125-4581-8e81-317bd0ae9e9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeM",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/movie/3a55cbf4-c125-4581-8e81-317bd0ae9e9e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"movie",
+						"3a55cbf4-c125-4581-8e81-317bd0ae9e9e"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
